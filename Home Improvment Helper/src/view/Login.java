@@ -2,9 +2,11 @@ package view;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -29,6 +31,11 @@ public class Login extends Application {
     Stage window;
     Scene loginScene, homePageScene;
     ArrayList<UserProfile> userlist;
+    
+    public static void main(String[] args)
+    {
+        launch(args);
+    }
     
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -69,8 +76,6 @@ public class Login extends Application {
      			dir.mkdir();
     		}
     	}
-    	
-    	System.out.println("After printing list");
         
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -119,7 +124,22 @@ public class Login extends Application {
                 for (int i = 0; i < userlist.size(); i++) {
                     if (userTextField.getText().toString().equals(userlist.get(i).getUsername())
                             && pwBox.getText().toString().equals(userlist.get(i).getPassword())) {
-                        window.setScene(homePageScene);
+                    	
+                    	//
+                    	
+                    	HomePage my_home_page = new HomePage();
+                    	
+                    	try {
+							my_home_page.start(window);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+                    	
+                    	
+                    	//
+                    	
+                        //window.setScene(homePageScene);
                         found = true;
                         break;
                     }

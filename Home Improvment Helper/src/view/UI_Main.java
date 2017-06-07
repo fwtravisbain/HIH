@@ -65,9 +65,14 @@ public class UI_Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
 
-        storedProject(primaryStage);
+        //storedProject(primaryStage);
 
-        window.setTitle("Home Improvement Helper");
+        //window.setTitle("Home Improvement Helper");
+        
+        Login my_login = new Login();
+        
+        my_login.start(window);
+        
         primaryStage.setResizable(false);
         window.show();
     }

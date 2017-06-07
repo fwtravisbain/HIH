@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -188,7 +189,16 @@ public class FormPage extends Application{
                                         try {oos.close();} catch (Exception ex) {}
                                     }
                                 }
-                                window.setScene(homePageScene);
+                                
+                                
+                                HomePage my_home_page = new HomePage();
+                            	
+                            	try {
+        							my_home_page.start(window);
+        						} catch (Exception e1) {
+        							// TODO Auto-generated catch block
+        							e1.printStackTrace();
+        						}
                             }
                         }
         );

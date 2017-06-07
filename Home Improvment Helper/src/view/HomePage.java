@@ -18,6 +18,11 @@ public class HomePage extends Application {
     Stage window;
     Scene homePageScene, formPageScene, sceneViewPage;
 
+    public static void main(String[] args)
+    {
+        launch(args);
+    }
+    
     @Override
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
@@ -83,7 +88,21 @@ public class HomePage extends Application {
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
 
-        projectButton.setOnAction(e -> window.setScene(formPageScene));
+        //projectButton.setOnAction(e -> window.setScene(formPageScene));
+        
+        projectButton.setOnAction(e -> {
+        	
+        	FormPage my_form_page = new FormPage();
+        	
+        	try {
+				my_form_page.start(window);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+        	
+        });
+        
         existingButton.setOnAction(e ->window.setScene(sceneViewPage));
     }
 }
